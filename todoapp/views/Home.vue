@@ -27,7 +27,7 @@ export default {
     TodoDetail,
     TodoEditing,
     FloatingButton
-  }
+  },
 }
 </script>
 <style lang="scss">

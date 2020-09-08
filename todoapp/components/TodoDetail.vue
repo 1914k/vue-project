@@ -1,5 +1,5 @@
 <template>
-  <transition name='show' @enter="handleEnter" @before-leave="handleLeave">
+  <transition name='show' @enter="handleEnter" @leave="handleLeave">
     <div class="todo-detail" v-if="selected">
       <app-bar @left="unselectTodo" />
       <todo :todo="selected.todo" :active="true" @close="unselectTodo" />
@@ -12,6 +12,11 @@ import { mapState, mapMutations } from "vuex"
 import AppBar from "./AppBar";
 import Todo from "./Todo";
 export default {
+  data() {
+    return {
+      curSelected: undefined
+    }
+  },
   components: {
     AppBar,
     Todo
@@ -22,7 +27,7 @@ export default {
   methods: {
     ...mapMutations(['unselectTodo']),
     handleEnter(el) {
-      console.log('进入',this.selected,el);
+      this.curSelected = this.selected;
       Object.assign(el.style, {
         top: `${this.selected.rect.top}px`,
         left: `${this.selected.rect.left}px`,
@@ -40,22 +45,21 @@ export default {
       }, 0);
     },
     handleLeave(el) {
-      console.log('离开',this.selected,el);
-      // Object.assign(el.style, {
-      //   top: 0,
-      //   left: 0,
-      //   width: `${this.selected.rect.appWidth}px`,
-      //   height: `${this.selected.rect.appHeight}px`
-      // })
+      Object.assign(el.style, {
+        top: 0,
+        left: 0,
+        width: `${this.curSelected.rect.appWidth}px`,
+        height: `${this.curSelected.rect.appHeight}px`
+      })
 
-      // setTimeout(() => {
-      //   Object.assign(el.style, {
-      //     top: `${this.selected.rect.top}px`,
-      //     left: `${this.selected.rect.left}px`,
-      //     width: `${this.selected.rect.width}px`,
-      //     height: `${this.selected.rect.height}px`,
-      //   })
-      // }, 0);
+      setTimeout(() => {
+        Object.assign(el.style, {
+          top: `${this.curSelected.rect.top}px`,
+          left: `${this.curSelected.rect.left}px`,
+          width: `${this.curSelected.rect.width}px`,
+          height: `${this.curSelected.rect.height}px`,
+        })
+      }, 0);
     }
   }
 }
@@ -115,30 +119,30 @@ export default {
     transform: translate3d(0, 0, 0);
   }
 }
-// .show-leave-to,
-// .show-enter {
-//   border-radius: 8px;
-//   .todo {
-//     padding: 0;
-//   }
-//   .todo_head {
-//     transform: translate3d(0, -40px, 0);
-//   }
-//   .todo_body {
-//     transform: translate3d(0, 22vh, 0);
-//   }
-//   .tood_menu {
-//     opacity: 1;
-//   }
-//   .todo_tasks {
-//     opacity: 0;
-//     transform: scale3d(1, 0, 1);
-//   }
-//   .app-bar {
-//     opacity: 0;
-//     transform: translate3d(0, -100%, 0);
-//   }
-// }
+.show-leave-to,
+.show-enter {
+  border-radius: 8px;
+  .todo {
+    padding: 0;
+  }
+  .todo_head {
+    transform: translate3d(0, -40px, 0);
+  }
+  .todo_body {
+    transform: translate3d(0, 22vh, 0);
+  }
+  .tood_menu {
+    opacity: 1;
+  }
+  .todo_tasks {
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+  }
+  .app-bar {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
 .show-enter-active,
 .show-leave-active {
   transition: all 0.5s ease;
