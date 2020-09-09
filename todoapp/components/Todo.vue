@@ -29,11 +29,13 @@
           </li>
         </ul>
         <h4 class="todo_subtitle" v-if="outdatedTasks.length">Outdated</h4>
-        <ul>
-          <li v-for="task in outdatedTasks" :key="task.id">
-            <task :todo="todo" :task='task' />
-          </li>
-        </ul>
+        <div class="todo_task_ul">
+          <ul>
+            <li v-for="task in outdatedTasks" :key="task.id">
+              <task :todo="todo" :task='task' />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

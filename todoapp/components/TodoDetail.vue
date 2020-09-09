@@ -112,6 +112,8 @@ export default {
   .todo_tasks {
     opacity: 1;
     transform: scale3d(1, 1, 1);
+    max-height: 225px;
+    overflow: hidden;
   }
   .app-bar {
     opacity: 1;
