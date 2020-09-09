@@ -38,75 +38,13 @@ export default {
 </script>
 
 <style lang="scss">
-// .task {
-//   display: flex;
-//   padding: 12px 0;
-//   border-bottom :1px solid #eee;
-//   font-size: 14px;
-//   input {
-//     display: none;
-
-//     &:checked + label::after {
-//       display: inline-block;
-//     }
-//   }
-//   lable {
-//     flex: 1;
-//     line-height: 20px;
-
-//     &::before,
-//     &::after {
-//       content: '';
-//       display: inline-block;
-//       margin: 1px 20px 0 0;
-//       width: 14px;
-//       height: 14px;
-//       vertical-align: top;
-//     }
-//     &::before {
-//       border:1px solid #ccc;
-//       border-radius: 2px;
-//       background-color: white;
-//     }
-//     &::after {
-//       content: '\f00c';
-//       position: relative;
-//       display: none;
-//       z-index: 10;
-//       margin-right: -16px;
-//       width: 10px;
-//       height: 10px;
-//       padding: 3px;
-//       border-radius: 2px;
-//       font: normal normal normal 10px/1 FontAwesome;
-//       color: white;
-//       background-color: #ccc;
-//       float: left;
-//     }
-//   }
-// }
-// .task_delete {
-//   padding: 0 10px;
-//   color: #ccc;
-//   font-size: 16px;
-// }
-// .fade-leave-to,
-// .fade-enter {
-//   opacity: 0;
-// }
-// .fade-enter-to,
-// .fade-leave {
-//   opacity: 1;
-// }
-// .fade-enter-active,
-// .fade-leave-acive {
-//   transition: all 0.3s ease;
-// }
 .task {
   display: flex;
   padding: 12px 0;
   border-bottom: 1px solid #eee;
   font-size: 14px;
+  max-height: 225px;
+  overflow: hidden;
 }
 .task input {
   display: none;
@@ -152,6 +90,7 @@ export default {
   padding: 0 10px;
   color: #ccc;
   font-size: 16px;
+  line-height: 20px;
 }
 .fade-leave-to,
 .fade-enter {

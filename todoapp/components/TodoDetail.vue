@@ -77,13 +77,12 @@ export default {
 
   .todo {
     margin: 0;
-    // margin-top: -44px;
     padding: 0 20px;
     box-shadow: none;
   }
   .todo_head,
   .todo_body {
-    transform: translate3d(0, 88px, 0);
+    transform: translate3d(0, 0, 0);
   }
   .todo_menu {
     opacity: 0;
@@ -103,10 +102,10 @@ export default {
   .todo {
     padding: 0 20px;
   }
-  .todo_head,
-  .todo_body {
-    transform: translate3d(0, 88px, 0);
-  }
+  // .todo_head,
+  // .todo_body {
+    // transform: translate3d(0, 88px, 0);
+  // }
   .todo_menu {
     opacity: 0;
   }
@@ -126,10 +125,10 @@ export default {
     padding: 0;
   }
   .todo_head {
-    transform: translate3d(0, -40px, 0);
+    transform: translate3d(0, -35px, 0);
   }
   .todo_body {
-    transform: translate3d(0, 22vh, 0);
+    transform: translate3d(0, 14vh, 0);
   }
   .tood_menu {
     opacity: 1;
