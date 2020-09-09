@@ -3,7 +3,7 @@
     <div class="todo-editing" v-if="!!editing">
       <app-bar title="New Tasks" left="close" @left="toggleEditing" />
       <div class="todo-editing_head">
-        <p>What tasks are you planning to perform?</p>
+        <p>请添加您的计划任务</p>
       </div>
       <div class="todo-editing_body">
         <textarea rows="3" v-model="editing.text"></textarea>
@@ -13,7 +13,7 @@
         </p>
         <p class="todo-editing_meta">
           <i class="fa fa-calendar"></i>
-          Today
+          今天
         </p>
       </div>
     </div>

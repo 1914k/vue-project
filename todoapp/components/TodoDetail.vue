@@ -77,7 +77,7 @@ export default {
 
   .todo {
     margin: 0;
-    margin-top: -44px;
+    // margin-top: -44px;
     padding: 0 20px;
     box-shadow: none;
   }

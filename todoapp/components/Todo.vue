@@ -1,13 +1,13 @@
 <template>
-  <div class="todo" :class="{ todo_selected:selected }">
-    <div class="todo_head" @click="handleClick">
+  <div class="todo" @click="handleClick" :class="{ todo_selected:selected }">
+    <div class="todo_head">
       <div class="todo_icon" :style="{ color }">
         <i :class="['fa', `fa-${todo.icon}`]"></i>
       </div>
       <div class="todo_menu"><i class="fa fa-ellipsis-v"></i></div>
     </div>
     <div class="todo_body">
-      <p class="todo_tips">{{todo.tasks.length}} Tasks</p>
+      <p class="todo_tips">{{todo.tasks.length}} 任务</p>
       <h3 class="todo_title">{{todo.name}}</h3>
       <div class="todo_progress">
         <span class="todo_progress_line">
@@ -16,13 +16,13 @@
         <span class="todo_progress_num">{{progress}}</span>
       </div>
       <div class="todo_tasks">
-        <h4 class="todo_subtitle" v-if="todayTasks.length">Today</h4>
+        <h4 class="todo_subtitle" v-if="todayTasks.length">今天</h4>
         <ul>
           <li v-for="task in todayTasks" :key="task.id">
             <task :todo="todo" :task='task' />
           </li>
         </ul>
-        <h4 class="todo_subtitle" v-if="tomorrowTasks.length">Tomorrow</h4>
+        <h4 class="todo_subtitle" v-if="tomorrowTasks.length">明天</h4>
         <ul>
           <li v-for="task in tomorrowTasks" :key="task.id">
             <task :todo="todo" :task='task' />
@@ -122,7 +122,6 @@ export default {
   height: 44px;
   justify-content: space-between;
   align-items: flex-start;
-  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 .todo_body {
